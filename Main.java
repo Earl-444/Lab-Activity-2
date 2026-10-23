@@ -1,53 +1,47 @@
 public class Main {
 
- public static void main(String[] agrs) {
- 
- Vehicle vehicle1 = new Vehicle("Porsche", "Carrera GTS", 2025);
-    System.out.println("Brand: " + vehicle1.getBrand());
-    System.out.println("Model: " + vehicle1.getModel());
-    System.out.println("Year: " + vehicle1.getYear());
-    
-      System.out.println("Age: " + vehicle1.calculateAge());
-      System.out.println("Vintage: " + vehicle1.isVintage());
+  public static void printDetails(Vehicle vehicle) {
+    vehicle.displayInfo();
+    System.out.println();
+  }
+
+  public static void main(String[] args) {
+
+    // DEMO 1: A parent reference holding a child object
+    System.out.println("DEMO 1: A parent reference holding a child object");
+    Vehicle vehicle = new Car("Toyota", "Camry", 2020, 4);
+    printDetails(vehicle);
+    System.out.println();
+
+    vehicle = new Motorcycle("Yamaha", "MT-07", 2025, "Parallel - Twin");
+    printDetails(vehicle);
+    System.out.println();
+
+    vehicle = new Truck("Isuzu", "Giga", 1994, 10);
+    printDetails(vehicle);
+    System.out.println();
+
+    // DEMO 2: One method accepts different Vehicle subclasses
+    System.out.println("DEMO 2: One method accepts different Vehicle subclasses");
+    printDetails(new Car("Honda", "Civic", 2022, 4));
+    printDetails(new Motorcycle("Harley-Davidson", "Street 750", 2023, "Liquid-cooled"));
+    printDetails(new Truck("Volvo", "FH16", 2021, 15));
+
+    System.out.println();
+
+    // DEMO 3: One array holds different Vehicle subclasses
+    System.out.println("DEMO 3: One array holds different Vehicle subclasses");
+    Vehicle[] vehicles = {
+        new Car("Ford", "Mustang", 2021, 2),
+        new Motorcycle("Ducati", "Panigale V4", 2024, "V4"),
+        new Truck("Mercedes-Benz", "Actros", 2020, 12)
+    };
+
+    for (Vehicle v : vehicles) {
+      printDetails(v);
       System.out.println();
- 
- Vehicle vehicle2 = new Vehicle("Honda", "CR-X Si", 1985);
-   System.out.println("Brand: " + vehicle2.getBrand());
-   System.out.println("Model: " + vehicle2.getModel());
-   System.out.println("Year: " + vehicle2.getYear());
-   
-      System.out.println("Age: " + vehicle2.calculateAge());
-      System.out.println("Vintage: " + vehicle2.isVintage());
-      System.out.println();
- 
- Vehicle vehicle3 = new Vehicle("Toyota", "GR Supra", 2026);
-   System.out.println("Brand: " + vehicle1.getBrand());
-   System.out.println("Model: " + vehicle1.getModel());
-   System.out.println("Year: " + vehicle1.getYear());
-   
-      System.out.println("Age: " + vehicle3.calculateAge());
-      System.out.println("Vintage: " + vehicle3.isVintage());
-      System.out.println();
-      
-        System.out.println("---- T E S T ----");
-
-        System.out.println("setYear(2000): " + vehicle2.setYear(2000));
-        System.out.println("Year: " + vehicle2.getYear());
-        System.out.println("Age: " + vehicle2.calculateAge());
-        System.out.println("Vintage: " + vehicle2.isVintage());
-
-        System.out.println();
-
-        System.out.println("setYear(1885): " + vehicle2.setYear(1885));
-        System.out.println("Year remains: " + vehicle2.getYear());
-
-        System.out.println();
-
-        System.out.println("setYear(2027): " + vehicle2.setYear(2027));
-        System.out.println("Year remains: " + vehicle2.getYear());
-
-        System.out.println();
-
     }
-}
 
+  }
+
+}
