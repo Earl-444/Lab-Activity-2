@@ -1,15 +1,44 @@
-public class Truck extends Vehicle{
+public class Truck extends Vehicle implements Serviceable {
    private int numberOfWheels;
-   
-   Truck(String brand, String model, int year, int numberOfWheels){
-   super(brand,model,year);
-   this.numberOfWheels = numberOfWheels;
+
+   public Truck(String brand, String model, int year, int numberOfWheels) {
+      super(brand, model, year);
+      this.numberOfWheels = numberOfWheels;
    }
-   
+
    @Override
-   public void displayInfo(){
+   public void move() {
+      moveForward();
+   }
+
+   @Override
+   public void moveForward() {
+      System.out.println("A truck moves forward");
+   }
+
+   @Override
+   public void moveBackwards() {
+      System.out.println("A truck moves backwards");
+   }
+
+   @Override
+   public void moveLeft() {
+      System.out.println("A truck moves left");
+   }
+
+   @Override
+   public void moveRight() {
+      System.out.println("A truck moves right");
+   }
+
+   @Override
+   public void service() {
+      System.out.println("Truck: inspect cargo brakes.");
+   }
+
+   @Override
+   public void displayInfo() {
       super.displayInfo();
-   System.out.print("Number of Wheels : " + numberOfWheels);
+      System.out.println("Number of wheels: " + numberOfWheels);
    }
 }
-   
